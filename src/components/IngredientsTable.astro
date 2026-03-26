@@ -1,0 +1,119 @@
+---
+interface Ingredient {
+  name: string;
+  amount: string;
+  benefit: string;
+}
+
+const ingredients: Ingredient[] = [
+  {
+    name: "Magnesium Glycinate",
+    amount: "400mg",
+    benefit: "Muscle tension relief. Unlike magnesium oxide (which passes through undigested), glycinate is absorbed. Stops the post-workout shakiness.",
+  },
+  {
+    name: "L-Theanine",
+    amount: "200mg",
+    benefit: "Mental clarity without stimulation. Balances the excitatory effects of training. No sleep disruption.",
+  },
+  {
+    name: "Taurine",
+    amount: "1,000mg",
+    benefit: "Neural recovery. Supports central nervous system restoration after high-intensity output.",
+  },
+  {
+    name: "Electrolytes (Sodium, Potassium, Chloride)",
+    amount: "Full spectrum",
+    benefit: "Rehydration foundation. What you lost sweating, you need to replace — not with sugar, just with what works.",
+  },
+];
+
+const exclusions = [
+  "No proprietary blend hiding ingredient amounts",
+  "No artificial colors or flavors",
+  "No stimulant crash",
+  "No \"matrix\" or \"complex\" marketing language",
+  "No subscription that locks you in",
+];
+---
+
+<section id="ingredients" class="py-16 sm:py-24 px-4 bg-surface-alt">
+  <div class="max-w-5xl mx-auto">
+    <h2
+      class="font-heading font-bold text-title text-primary text-center mb-4"
+      data-reveal
+    >
+      What's Actually in Recover38
+    </h2>
+    
+    <p 
+      class="text-text-muted text-center mb-12 max-w-2xl mx-auto"
+      data-reveal
+      data-reveal-delay="1"
+    >
+      Full ingredient disclosure with exact amounts and clear explanations of what each ingredient does and why.
+    </p>
+
+    <!-- Ingredients Table -->
+    <div 
+      class="overflow-hidden rounded-2xl border border-border shadow-card"
+      data-reveal
+      data-reveal-delay="2"
+    >
+      <table class="w-full">
+        <thead>
+          <tr class="bg-surface">
+            <th class="px-6 py-4 text-left font-heading font-semibold text-primary">Ingredient</th>
+            <th class="px-6 py-4 text-left font-heading font-semibold text-primary">Amount</th>
+            <th class="px-6 py-4 text-left font-heading font-semibold text-primary hidden sm:table-cell">Why It Matters</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          {ingredients.map((ing, index) => (
+            <tr class={index % 2 === 1 ? "bg-surface-alt/50" : "bg-surface"}>
+              <td class="px-6 py-4 font-semibold text-text-main">{ing.name}</td>
+              <td class="px-6 py-4 font-mono text-accent font-semibold">{ing.amount}</td>
+              <td class="px-6 py-4 text-text-muted hidden sm:table-cell">{ing.benefit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile cards for benefits -->
+    <div class="sm:hidden mt-6 space-y-4">
+      {ingredients.map((ing, index) => (
+        <div 
+          class="bg-surface p-5 rounded-xl border border-border"
+          data-reveal
+          data-reveal-delay={String(Math.min(index + 3, 5))}
+        >
+          <div class="flex justify-between items-start mb-2">
+            <h4 class="font-semibold text-primary">{ing.name}</h4>
+            <span class="font-mono text-accent font-semibold text-sm">{ing.amount}</span>
+          </div>
+          <p class="text-sm text-text-muted">{ing.benefit}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- What You Won't Find -->
+    <div 
+      class="mt-12 bg-surface rounded-2xl p-8 border border-border"
+      data-reveal
+      data-reveal-delay="3"
+    >
+      <h3 class="font-heading font-semibold text-xl text-primary mb-4">What You Won't Find</h3>
+      <ul class="space-y-2">
+        {exclusions.map((item) => (
+          <li class="flex items-center gap-3 text-text-muted">
+            <svg class="w-5 h-5 text-success flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

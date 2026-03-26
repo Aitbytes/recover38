@@ -1,0 +1,97 @@
+---
+interface PainPoint {
+  title: string;
+  quote: string;
+  reality: string;
+  solution: string;
+}
+
+const painPoints: PainPoint[] = [
+  {
+    title: "Jittery Muscles After Workout",
+    quote: "\"Jittery muscles after workout?\" — a post with 874 upvotes from fitness enthusiasts who know exactly what you're describing",
+    reality: "Your muscles won't stop trembling. It's not soreness — it's that shaky, can't-relax feeling that makes sitting on the couch feel mandatory.",
+    solution: "Magnesium glycinate — the form that's actually absorbed by your body, not the cheap oxide pass-through. Calms muscle tension at the source.",
+  },
+  {
+    title: "Brain Fog That Wrecks Your Evening",
+    quote: "\"Being able to do household chores right when I get home instead of sitting around recovering from the day\" — exactly what you're thinking but haven't said out loud",
+    reality: "You crushed your workout. Now you can barely hold a conversation. The mental exhaustion is real, and your evening productivity evaporates.",
+    solution: "L-theanine + taurine work together to clear mental fog without the stimulation that would disrupt your sleep later.",
+  },
+  {
+    title: "Extended Recovery Steals Your Days",
+    quote: "Multiple Reddit threads from people trying to increase training frequency but getting injured like tendonitis — because they can't recover fast enough",
+    reality: "When each workout leaves you wrecked until the next day, you're constantly training at a deficit. Progress stalls. Consistency suffers.",
+    solution: "Electrolytes replenish what you lost. Neural support closes the recovery gap. Train harder tomorrow because you recovered faster today.",
+  },
+];
+---
+
+<section id="problem-solution" class="py-16 sm:py-24 px-4 bg-surface">
+  <div class="max-w-5xl mx-auto">
+    <h2
+      class="font-heading font-bold text-title text-primary text-center mb-12 sm:mb-16"
+      data-reveal
+    >
+      The Problem We Solve
+    </h2>
+
+    <div class="space-y-16 sm:space-y-20">
+      {painPoints.map((point, index) => (
+        <div
+          class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+          data-reveal
+          data-reveal-delay={String(Math.min(index + 1, 3))}
+        >
+          <!-- Content -->
+          <div class={index % 2 === 1 ? "lg:order-2" : ""}>
+            <h3 class="font-heading font-bold text-2xl sm:text-3xl text-primary mb-6 leading-tight">
+              {point.title}
+            </h3>
+            
+            <!-- Customer Quote -->
+            <blockquote class="border-l-4 border-accent pl-5 mb-6">
+              <p class="text-lg text-text-muted italic leading-relaxed">
+                {point.quote}
+              </p>
+            </blockquote>
+            
+            <!-- Reality -->
+            <p class="text-text-main mb-6 leading-relaxed">
+              {point.reality}
+            </p>
+            
+            <!-- Solution -->
+            <div class="bg-primary/5 rounded-xl p-5 border border-primary/10">
+              <p class="font-semibold text-primary mb-1">Recover38 Solution:</p>
+              <p class="text-text-muted leading-relaxed">
+                {point.solution}
+              </p>
+            </div>
+          </div>
+          
+          <!-- Visual Element -->
+          <div class={`flex justify-center ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+            <div class="relative">
+              <!-- Large number as background element -->
+              <span 
+                class="font-heading font-bold text-[100px] sm:text-[150px] text-primary/10 absolute -top-8 -left-4 select-none" 
+                aria-hidden="true"
+              >
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div class="relative z-10 w-48 h-48 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                <div class="w-32 h-32 rounded-2xl bg-surface border-2 border-primary/30 flex items-center justify-center">
+                  <span class="font-heading font-bold text-5xl text-primary">
+                    {index === 0 ? "~" : index === 1 ? "..." : "↻"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

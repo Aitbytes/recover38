@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ValueProposition from '../components/ValueProposition.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import IngredientsTable from '../components/IngredientsTable.astro';
+import SocialProof from '../components/SocialProof.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+
+const APP_NAME = "recover38";
+
+const faqs = [
+  { 
+    q: "How is this different from a pre-workout or protein shake?", 
+    a: "Pre-workouts get you started. Protein helps you recover overnight. Recover38 works in the 30 minutes post-workout when you're experiencing the crash — jittery muscles, mental fog, the specific exhaustion that ruins your evening. It's the missing link between your workout and the rest of your day." 
+  },
+  { 
+    q: "Isn't this just magnesium? I can buy that cheap.", 
+    a: "You can buy magnesium oxide for $5 at any pharmacy. It passes through your digestive system largely undigested. Recover38 uses magnesium glycinate — the form your body actually absorbs. Plus, we include L-theanine, taurine, and electrolytes in effective doses. It's not one ingredient; it's a stack designed to work together." 
+  },
+  { 
+    q: "How is this different from WHOOP?", 
+    a: "WHOOP tracks your recovery after the fact and gives you a number you don't fully understand. Recover38 is something you take right after training to actively reduce fatigue. WHOOP tells you how recovered you are. Recover38 helps you actually get there. Also: $29.99/month vs. $239+/year, and you can cancel whenever." 
+  },
+  { 
+    q: "Will this keep me awake at night?", 
+    a: "No. We specifically avoided stimulants. The L-theanine actually promotes calm focus without sedation, and it won't disrupt sleep the way stim-based products can." 
+  },
+  { 
+    q: "What if it doesn't work for me?", 
+    a: "Try it for a full month of workouts. If you don't notice a meaningful difference in how you feel post-workout, email us for a full refund. No hoops, no \"contact support\" runaround." 
+  },
+  { 
+    q: "Do I need to take it every day?", 
+    a: "Take it whenever you work out. If you're training 3-5x/week, that's 3-5 servings. One bag of 30 servings lasts a month at average training frequency." 
+  },
+];
+
+const steps = [
+  { 
+    step: "Mix It Post-Workout", 
+    title: "One scoop in water",
+    outcome: "One scoop in water within 30 minutes of finishing. No complicated timing. No food-prep required." 
+  },
+  { 
+    step: "Feel the Shift", 
+    title: "Within 30 minutes",
+    outcome: "Within 30 minutes, muscle shakiness fades. Mental fog lifts. You're not amped up — you're just... normal." 
+  },
+  { 
+    step: "Live Your Evening", 
+    title: "Back to your life",
+    outcome: "Cook dinner. Play with your kids. Get stuff done. Tomorrow's workout is waiting — and you'll actually be ready for it." 
+  },
+];
+---
+
+<Layout 
+  title="Recover38 — Neural Rapid Recovery Powder" 
+  description="End the post-workout crash. Recover38 targets jittery muscles and brain fog within 30 minutes of consumption. Join the waitlist for early access."
+>
+  <Header appName={APP_NAME} />
+  <Hero appName={APP_NAME} />
+  <ValueProposition />
+  <ProblemSolution />
+  <HowItWorks steps={steps} sectionTitle="How It Works" bgClass="bg-surface-alt" />
+  <IngredientsTable />
+  <SocialProof />
+  <ComparisonTable />
+  <FAQ items={faqs} title="Frequently Asked Questions" bgClass="bg-surface" />
+  <FinalCTA appName={APP_NAME} />
+  <Footer appName={APP_NAME} />
+</Layout>

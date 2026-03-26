@@ -1,0 +1,57 @@
+---
+import WaitlistForm from './WaitlistForm.astro';
+interface Props {
+  appName: string;
+}
+const { appName } = Astro.props;
+---
+
+<section id="waitlist" class="py-20 sm:py-32 px-4 bg-gradient-to-b from-surface to-surface-alt">
+  <div class="max-w-3xl mx-auto text-center">
+    <!-- Decorative number -->
+    <span 
+      class="font-heading font-bold text-[100px] sm:text-[150px] text-accent/10 absolute left-1/2 -translate-x-1/2 select-none pointer-events-none" 
+      aria-hidden="true"
+    >
+      38
+    </span>
+    
+    <div class="relative">
+      <h2 
+        class="font-heading font-bold text-title text-primary mb-6"
+        data-reveal
+      >
+        You Trained Hard. Now Recover Right.
+      </h2>
+      
+      <p 
+        class="text-lead text-text-muted mb-10 max-w-xl mx-auto"
+        data-reveal
+        data-reveal-delay="1"
+      >
+        Recover38 is the first post-workout supplement designed for the 6pm gym crowd — people who want to feel normal again, not just eventually recover. Join the waitlist to get early access and founding member pricing when we launch.
+      </p>
+      
+      <div 
+        class="mb-6"
+        data-reveal
+        data-reveal-delay="2"
+      >
+        <WaitlistForm
+          projectName={appName}
+          buttonText="Join the Waitlist — Get Early Access"
+          variant="cta"
+          formId="bottom"
+        />
+      </div>
+      
+      <p 
+        class="text-sm text-text-muted"
+        data-reveal
+        data-reveal-delay="3"
+      >
+        No credit card required. Just your email. We'll let you know when Recover38 is ready — and you'll be first in line if you want to try it.
+      </p>
+    </div>
+  </div>
+</section>

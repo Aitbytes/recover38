@@ -1,0 +1,25 @@
+---
+interface Props {
+  appName: string;
+}
+
+const { appName } = Astro.props;
+---
+
+<header class="py-6 px-4 border-b border-border bg-surface/80 backdrop-blur-sm sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- Logo / Brand -->
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="font-heading font-bold text-2xl text-primary">Recover</span>
+      <span class="font-heading font-bold text-2xl text-accent">38</span>
+    </a>
+
+    <!-- Nav link -->
+    <a 
+      href="#waitlist" 
+      class="text-sm font-semibold text-primary hover:text-accent transition-colors duration-200"
+    >
+      Join Waitlist
+    </a>
+  </div>
+</header>

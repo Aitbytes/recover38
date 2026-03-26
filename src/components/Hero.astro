@@ -1,0 +1,88 @@
+---
+import WaitlistForm from './WaitlistForm.astro';
+interface Props {
+  appName: string;
+}
+const { appName } = Astro.props;
+---
+
+<section class="py-16 sm:py-24 px-4 bg-surface relative overflow-hidden">
+  <!-- Background decorative numbers -->
+  <div class="absolute top-10 right-0 sm:right-20 font-heading font-bold text-[120px] sm:text-[200px] text-accent/5 select-none pointer-events-none" aria-hidden="true">
+    38
+  </div>
+  <div class="absolute bottom-10 left-0 sm:left-20 font-heading font-bold text-[80px] sm:text-[150px] text-primary/5 select-none pointer-events-none" aria-hidden="true">
+    30
+  </div>
+
+  <div class="max-w-6xl mx-auto relative">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Copy + Form -->
+      <div class="text-center lg:text-left">
+        <h1 
+          class="font-heading font-bold text-display text-primary mb-6 leading-tight"
+          data-reveal
+        >
+          End the Post-Workout Crash — Feel Normal Again in 30 Minutes
+        </h1>
+        
+        <p 
+          class="text-lead text-text-muted mb-10 max-w-xl mx-auto lg:mx-0"
+          data-reveal
+          data-reveal-delay="1"
+        >
+          Recover38 is the neural recovery powder that stops jittery muscles and brain fog right after your workout — so you can be present tonight, not just recovered by tomorrow.
+        </p>
+        
+        <div 
+          class="mb-6"
+          data-reveal
+          data-reveal-delay="2"
+        >
+          <WaitlistForm
+            projectName={appName}
+            buttonText="Join the Waitlist"
+            variant="hero"
+            formId="hero"
+          />
+        </div>
+        
+        <p 
+          class="text-sm text-text-muted"
+          data-reveal
+          data-reveal-delay="3"
+        >
+          Join 2,400+ gym-goers waiting for a better way to recover
+        </p>
+      </div>
+
+      <!-- Right: Product Visual Placeholder -->
+      <div 
+        class="hidden lg:flex justify-center items-center"
+        data-reveal
+        data-reveal-delay="2"
+      >
+        <div class="relative">
+          <!-- Abstract product visualization -->
+          <div class="w-72 h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl flex items-center justify-center border border-border">
+            <div class="text-center">
+              <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-lg">
+                <span class="font-heading font-bold text-3xl text-white">38</span>
+              </div>
+              <p class="font-heading font-semibold text-primary text-lg">Recover38</p>
+              <p class="text-sm text-text-muted mt-1">Neural Recovery Powder</p>
+              <div class="mt-6 space-y-2 text-sm text-text-muted">
+                <p>Magnesium Glycinate</p>
+                <p>L-Theanine</p>
+                <p>Taurine</p>
+                <p>Electrolytes</p>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative accent -->
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-2xl" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

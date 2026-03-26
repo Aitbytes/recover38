@@ -1,0 +1,32 @@
+---
+interface Props {
+  appName: string;
+}
+
+const { appName } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-12 px-4 bg-border">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <span class="font-heading font-bold text-xl text-primary">Recover</span>
+        <span class="font-heading font-bold text-xl text-accent">38</span>
+      </a>
+      
+      <!-- Links -->
+      <nav class="flex items-center gap-6 text-sm text-text-muted">
+        <a href="#" class="hover:text-primary transition-colors duration-200">Privacy</a>
+        <a href="#" class="hover:text-primary transition-colors duration-200">Terms</a>
+        <a href="#" class="hover:text-primary transition-colors duration-200">Contact</a>
+      </nav>
+      
+      <!-- Copyright -->
+      <p class="text-sm text-text-muted">
+        &copy; {currentYear} Recover38. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

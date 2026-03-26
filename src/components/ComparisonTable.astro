@@ -1,0 +1,132 @@
+---
+interface ComparisonRow {
+  feature: string;
+  whoop: string;
+  other: string;
+  recover38: string;
+}
+
+const comparisons: ComparisonRow[] = [
+  {
+    feature: "What it does",
+    whoop: "Tracks your recovery (with questionable accuracy)",
+    other: "Generic muscle support",
+    recover38: "Targets neural recovery + muscle tension + hydration",
+  },
+  {
+    feature: "Pricing",
+    whoop: "$239-359/year + $149 device",
+    other: "$20-40/month (ingredients often underdosed)",
+    recover38: "$29.99/month, month-to-month",
+  },
+  {
+    feature: "Transparency",
+    whoop: "\"AI numbers no one knows how they do it\"",
+    other: "Proprietary blends hide the details",
+    recover38: "Full ingredient disclosure with amounts",
+  },
+  {
+    feature: "Commitment",
+    whoop: "Auto-renews, hard to cancel",
+    other: "Usually subscription",
+    recover38: "Cancel anytime, one email",
+  },
+  {
+    feature: "When it works",
+    whoop: "Only while wearing the device",
+    other: "Takes weeks to build up",
+    recover38: "30 minutes after you drink it",
+  },
+];
+
+const CheckIcon = () => (
+  <svg class="w-5 h-5 text-success mx-auto" viewBox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+  </svg>
+);
+
+const XIcon = () => (
+  <svg class="w-5 h-5 text-red-400 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+  </svg>
+);
+---
+
+<section id="comparison" class="py-16 sm:py-24 px-4 bg-surface-alt">
+  <div class="max-w-5xl mx-auto">
+    <h2
+      class="font-heading font-bold text-title text-primary text-center mb-4"
+      data-reveal
+    >
+      How We Stack Up
+    </h2>
+    
+    <p 
+      class="text-text-muted text-center mb-12 max-w-2xl mx-auto"
+      data-reveal
+      data-reveal-delay="1"
+    >
+      See how Recover38 compares to the alternatives.
+    </p>
+
+    <!-- Desktop Table -->
+    <div 
+      class="hidden md:block overflow-hidden rounded-2xl border border-border shadow-card bg-surface"
+      data-reveal
+      data-reveal-delay="2"
+    >
+      <table class="w-full">
+        <thead>
+          <tr class="bg-primary">
+            <th class="px-6 py-4 text-left font-heading font-semibold text-white w-1/4">Feature</th>
+            <th class="px-6 py-4 text-center font-heading font-semibold text-white w-1/4">WHOOP</th>
+            <th class="px-6 py-4 text-center font-heading font-semibold text-white w-1/4">Other Supplements</th>
+            <th class="px-6 py-4 text-center font-heading font-semibold text-white bg-accent w-1/4">Recover38</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-border">
+          {comparisons.map((row, index) => (
+            <tr class={index % 2 === 1 ? "bg-surface-alt/50" : ""}>
+              <td class="px-6 py-4 font-semibold text-text-main">{row.feature}</td>
+              <td class="px-6 py-4 text-center text-text-muted text-sm">{row.whoop}</td>
+              <td class="px-6 py-4 text-center text-text-muted text-sm">{row.other}</td>
+              <td class="px-6 py-4 text-center text-primary font-medium text-sm bg-accent/10">{row.recover38}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile Cards -->
+    <div class="md:hidden space-y-6">
+      <!-- Header -->
+      <div class="grid grid-cols-3 gap-4">
+        <div class="text-center">
+          <span class="font-heading font-semibold text-text-muted text-sm">WHOOP</span>
+        </div>
+        <div class="text-center">
+          <span class="font-heading font-semibold text-text-muted text-sm">Others</span>
+        </div>
+        <div class="text-center">
+          <span class="font-heading font-semibold text-accent text-sm font-bold">Recover38</span>
+        </div>
+      </div>
+
+      <!-- Feature rows -->
+      {comparisons.map((row, index) => (
+        <div 
+          class="bg-surface rounded-xl p-5 border border-border"
+          data-reveal
+          data-reveal-delay={String(Math.min(index + 2, 5))}
+        >
+          <h4 class="font-semibold text-primary mb-3 text-sm">{row.feature}</h4>
+          <div class="grid grid-cols-3 gap-2 text-xs text-center">
+            <p class="text-text-muted">{row.whoop}</p>
+            <p class="text-text-muted">{row.other}</p>
+            <p class="text-primary font-medium">{row.recover38}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
